@@ -2,4 +2,3 @@
 
 A super simple Rails app to show arrival predictions for the MBTA
 
-![alt text](1.png "Description goes here")
