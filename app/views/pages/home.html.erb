@@ -1,0 +1,4 @@
+<b>Select a route:</b><br/>
+<% @routes.each do |route| %>
+  <%= link_to route,  route_url(@route_hash[route], route)%> <br/>
+<% end %>
