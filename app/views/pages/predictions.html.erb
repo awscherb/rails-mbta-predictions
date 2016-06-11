@@ -2,7 +2,7 @@
 Predictions for <%= @stop_name %><br/><br/>
 <%=if @directions.empty? then "No predictions" end %>
 <% @directions.keys.each do |direction|  %>
-  <b><%= @directions[direction] %> (<%= direction %>)</b><br/>
+  <b><%= direction %></b><br/>
   <% @predictions_table[direction].each do |prediction| %>
     <%= prediction %> </br>
   <% end %>

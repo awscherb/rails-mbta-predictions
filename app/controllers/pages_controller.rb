@@ -3,7 +3,7 @@ require 'json'
 
 class PagesController < ApplicationController
 
-  API_KEY = File.read("key").strip! 
+  API_KEY = File.read("/home/alex/rails/rails-mbta-predictions/key").strip! 
  
   # get all the routes
   def home
@@ -47,6 +47,7 @@ class PagesController < ApplicationController
 
   # get predictions
   def predictions
+    puts Dir.pwd
     @route = params[:route]
     @stop = params[:stop]
     @directions = {}
@@ -66,15 +67,18 @@ class PagesController < ApplicationController
             @directions[direction['direction_name']] = ''
             @predictions_table[direction['direction_name']] = []
             direction['trip'].each do |trip|
-              @directions[direction['direction_name']] = trip['trip_headsign']
+              @directions[direction['direction_name']] = direction['direction_name']
               @predictions_table[direction['direction_name']] \
-                << "arriving in " + Time.at(trip['pre_away'].to_i).strftime("%M:%S")
+                << "arriving in " + Time.at(trip['pre_away'].to_i).strftime("%M:%S") \
+                + " to " + trip['trip_headsign']
             end
           end
         end
       end
     end
-    
+   @predictions_table.keys.each do |direction|
+     @predictions_table[direction].sort!
+   end 
   end
   
   # get url for 'route' page
