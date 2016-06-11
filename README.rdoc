@@ -1,3 +1,5 @@
 == rails-mbta-predictions
 
 A super simple Rails app to show arrival predictions for the MBTA
+
+<img src="https://raw.githubusercontent.com/awscherb/rails-mbta-predictions/master/1.png">
