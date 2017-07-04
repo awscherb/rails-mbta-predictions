@@ -11,11 +11,13 @@ class PagesController < ApplicationController
     routes_json = JSON.parse Net::HTTP.get uri
     @route_hash = {}
     @routes = []
-    routes_json['mode'].each do |mode|
-      mode['route'].each do |route|
-        unless mode['route_type'] == "2" or mode['route_type'] == "4"
-          @routes << route['route_name']
-          @route_hash[route['route_name']] = route['route_id']
+    unless !routes_json['mode']
+      routes_json['mode'].each do |mode|
+        mode['route'].each do |route|
+          unless mode['route_type'] == "2" or mode['route_type'] == "4"
+            @routes << route['route_name']
+            @route_hash[route['route_name']] = route['route_id']
+          end
         end
       end
     end
