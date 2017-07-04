@@ -1,6 +1,7 @@
-<a href="/">Back</a><br/>
-<b>Select a stop:</b><br/> 
+<a href="/">Back</a>
+<br>
+<b><h3>Select a stop:</h3></b>
 <% @stops.each do |stop| %>
-  <%= link_to stop,  predictions_url(@stops_hash[stop], @route_id)%> <br/>
+  <%= link_to stop,  predictions_url(@stops_hash[stop], @route_id)%><br> <br/>
 <% end %>
 ~            

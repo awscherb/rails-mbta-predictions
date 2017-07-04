@@ -1,5 +1,6 @@
-<a href=<%="/route?id="+@route%>>Back</a><br/>
-Predictions for <%= @stop_name %><br/><br/>
+<a href=<%="/route?id="+@route%>>Back</a>
+<br>
+<h3>Predictions for <%= @stop_name %></h3>
 <%=if @directions.empty? then "No predictions" end %>
 <% @directions.keys.each do |direction|  %>
   <b><%= direction %></b><br/>
